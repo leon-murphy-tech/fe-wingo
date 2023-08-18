@@ -1,34 +1,26 @@
-// project import
-import Routes from 'routes';
-import ThemeCustomization from 'themes';
-import Locales from 'components/Locales';
-// import RTLLayout from 'components/RTLLayout';
-import ScrollTop from 'components/ScrollTop';
-import Snackbar from 'components/@extended/Snackbar';
-import Notistack from 'components/third-party/Notistack';
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { createTheme, ThemeProvider } from '@mui/material';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Routes from './Routes';
+import { AlertMessageProvider } from './contexts/AlertMessageContext';
+import { LoadingProvider } from './contexts/LoadingContext';
 
-// auth-provider
-import { FirebaseProvider as AuthProvider } from 'contexts/FirebaseContext';
+const theme = createTheme({});
 
-// ==============================|| APP - THEME, ROUTER, LOCAL  ||============================== //
-
-const App = () => (
-  <ThemeCustomization>
-    {/* <RTLLayout> */}
-    <Locales>
-      <ScrollTop>
-        <AuthProvider>
-          <>
-            <Notistack>
-              <Routes />
-              <Snackbar />
-            </Notistack>
-          </>
-        </AuthProvider>
-      </ScrollTop>
-    </Locales>
-    {/* </RTLLayout> */}
-  </ThemeCustomization>
-);
+function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <LoadingProvider>
+        <AlertMessageProvider>
+          <Router>
+            <Routes />
+          </Router>
+        </AlertMessageProvider>
+      </LoadingProvider>
+    </ThemeProvider>
+  );
+}
 
 export default App;

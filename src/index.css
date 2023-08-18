@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  font-family: font-walter-turncoat;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.bg-main {
+  background: #131313;
+}
+
+@font-face {
+  font-family: font-walter-turncoat;
+  src: url(../public/assets/fonts/WalterTurncoat.ttf);
+}
+
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide {
+  height: inherit !important;
+  display: flex !important;
+}
+
+.slick-next {
+  display: none !important;
+}
+
+.slick-prev {
+  display: none !important;
+}
+
+.utility-curve::after {
+  content: "";
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+  width: 100%;
+  background-color: #0f0f10;
+  height: 85%;
+}
